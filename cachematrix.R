@@ -1,7 +1,7 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## Write a short comment describing this function
+## overall , it is the same. Just change the function of mean to solve. 
 
 makeCacheMatrix <- function(x = matrix()) {
 m <- NULL
