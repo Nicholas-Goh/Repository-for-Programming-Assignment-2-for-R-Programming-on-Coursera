@@ -10,7 +10,8 @@ m <- NULL
     m <<- NULL
   }
   get <- function() x
-  setinverse <- function(mean) m <<- mean
+  ## assigning inverse value to m to be computed 
+  setinverse <- function(inverse) m <<- inverse
   getinverse <- function() m
   list(set = set, get = get,
        setinverse = setinverse,
@@ -22,12 +23,14 @@ m <- NULL
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
+        ## check whether m is a empty matrix , if it is a empty matrix, proceed to calculate inverse, if not take the data in the cache
          m <- x$getinverse()
   if(!is.null(m)) {
     message("getting cached data")
     return(m)
   }
   data <- x$get()
+  ## solving for matrix inverse and storing it to m
   m <- solve(data, ...)
   x$setinverse(m)
   m
